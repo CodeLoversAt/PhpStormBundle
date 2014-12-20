@@ -13,7 +13,7 @@
         "symfony/framework-bundle": ">=2.1",
         "symfony/console": ">=2.1",
         "symfony/finder": ">=2.1",
-        "jms/serializer-bundle": "0.13.0",
+        "jms/serializer-bundle": "0.13.*@dev",
         "doctrine/collections": "v1.2"
     },
     "autoload": {
