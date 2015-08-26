@@ -30,5 +30,9 @@ class CodeLoversPhpStormExtension extends Extension
             ->addArgument($config['template_data_languages'])
             ->addArgument($config['source_folders'])
         ;
+
+        $container->getDefinition('code_lovers_php_storm.deployment')
+            ->addArgument($config['config_folder'])
+        ;
     }
 }

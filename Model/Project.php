@@ -92,4 +92,14 @@ class Project
             return 'TemplateDataLanguageMappings' === $c->getName();
         });
     }
+
+    /**
+     * @return Collection
+     */
+    public function getPublishConfigData()
+    {
+        return $this->components->filter(function (Component $c) {
+            return 'PublishConfigData' === $c->getName();
+        });
+    }
 } 

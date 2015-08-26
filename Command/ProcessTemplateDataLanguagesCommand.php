@@ -19,6 +19,7 @@ class ProcessTemplateDataLanguagesCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this->setName('codelovers:phpstorm:processTemplates')
+            ->setAliases(array('codelovers:phpstorm:templates'))
             ->setDescription('Processess all template data languages and updates the config file');
     }
 

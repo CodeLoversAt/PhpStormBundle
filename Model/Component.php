@@ -24,12 +24,52 @@ class Component
     private $name;
 
     /**
+     * @var string
+     *
+     * @JMS\XmlAttribute
+     * @JMS\Type("string")
+     */
+    private $autoUpload;
+
+    /**
+     * @var string
+     *
+     * @JMS\XmlAttribute
+     * @JMS\Type("string")
+     */
+    private $serverName;
+
+    /**
+     * @var string
+     *
+     * @JMS\XmlAttribute
+     * @JMS\Type("boolean")
+     */
+    private $autoUploadExternalChanges;
+
+    /**
      * @var Collection
      *
      * @JMS\Type("ArrayCollection<CodeLovers\PhpStormBundle\Model\File>")
      * @JMS\XmlList(inline=true, entry="file")
      */
     private $files;
+
+    /**
+     * @var Collection
+     *
+     * @JMS\Type("ArrayCollection<CodeLovers\PhpStormBundle\Model\ServerData>")
+     * @JMS\XmlList(inline=true, entry="serverData")
+     */
+    private $serverData;
+
+    /**
+     * @var Collection
+     *
+     * @JMS\Type("ArrayCollection<CodeLovers\PhpStormBundle\Model\Option>")
+     * @JMS\XmlList(inline=true, entry="option")
+     */
+    private $options;
 
 
     /**
@@ -38,6 +78,8 @@ class Component
     public function  __construct()
     {
         $this->files = new ArrayCollection();
+        $this->serverData = new ArrayCollection();
+        $this->options = new ArrayCollection();
     }
     /**
      * @return string
@@ -87,6 +129,129 @@ class Component
     public function addFile(File $file)
     {
         $this->files->add($file);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAutoUpload()
+    {
+        return $this->autoUpload;
+    }
+
+    /**
+     * @param string $autoUpload
+     *
+     * @return Component
+     */
+    public function setAutoUpload($autoUpload)
+    {
+        $this->autoUpload = $autoUpload;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServerName()
+    {
+        return $this->serverName;
+    }
+
+    /**
+     * @param string $serverName
+     *
+     * @return Component
+     */
+    public function setServerName($serverName)
+    {
+        $this->serverName = $serverName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAutoUploadExternalChanges()
+    {
+        return $this->autoUploadExternalChanges;
+    }
+
+    /**
+     * @param string $autoUploadExternalChanges
+     *
+     * @return Component
+     */
+    public function setAutoUploadExternalChanges($autoUploadExternalChanges)
+    {
+        $this->autoUploadExternalChanges = $autoUploadExternalChanges;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getServerData()
+    {
+        return $this->serverData;
+    }
+
+    /**
+     * @param Collection $serverData
+     *
+     * @return Component
+     */
+    public function setServerData(Collection $serverData)
+    {
+        $this->serverData = $serverData;
+
+        return $this;
+    }
+
+    /**
+     * @param ServerData $serverData
+     *
+     * @return Component
+     */
+    public function addServerData(ServerData $serverData)
+    {
+        $this->serverData->add($serverData);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param Collection $options
+     *
+     * @return Component
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+        return $this;
+    }
+
+    /**
+     * @param Option $option
+     *
+     * @return Component
+     */
+    public function addOption(Option $option)
+    {
+        $this->options->add($option);
 
         return $this;
     }

@@ -6,10 +6,16 @@
 
     <parameters>
         <parameter key="code_lovers_php_storm.templatedatalanguages.class">CodeLovers\PhpStormBundle\Service\TemplateDataLanguagesProcessor</parameter>
+        <parameter key="code_lovers_php_storm.deployment.class">CodeLovers\PhpStormBundle\Service\DeploymentProcessor</parameter>
     </parameters>
 
     <services>
         <service id="code_lovers_php_storm.templatedatalanguages" class="%code_lovers_php_storm.templatedatalanguages.class%">
+            <argument key="serializer" type="service" id="jms_serializer" />
+            <argument key="rootDir">%kernel.root_dir%/..</argument>
+        </service>
+
+        <service id="code_lovers_php_storm.deployment" class="%code_lovers_php_storm.deployment.class%">
             <argument key="serializer" type="service" id="jms_serializer" />
             <argument key="rootDir">%kernel.root_dir%/..</argument>
         </service>

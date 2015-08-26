@@ -89,11 +89,7 @@ class TemplateDataLanguagesProcessor
         $this->serializer = $serializer;
         $this->rootDir = $rootDir;
 
-        if ('/' === substr($configFolder, -1)) {
-            $this->configFolder = substr($configFolder, 0, -1);
-        } else {
-            $this->configFolder = $configFolder;
-        }
+        $this->configFolder = preg_replace('/\/$/', '', $configFolder);
         $this->languages = $languages;
         $this->sourceFolders = $sourceFolders;
     }
